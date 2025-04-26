@@ -27,7 +27,8 @@
 </head>
 <body class="bg-lightbg text-text font-opensans">
 
-<!-- HEADER -->
+ HEADER 
+
 <header class="sticky top-0 z-50 bg-darkbg flex items-center justify-between px-8 py-4">
   <div class="flex items-center gap-4">
     <img src="pictures/oaklp.JPG" alt="Logo" class="h-12 w-12 rounded">
@@ -42,7 +43,8 @@
   </nav>
 </header>
 
-<!-- HERO SLIDER -->
+ HERO SLIDER 
+
 <section class="relative overflow-hidden h-[350px]">
   <div id="slides" class="flex w-[500%] h-full transition-transform duration-500 ease-in-out">
     <div class="slide flex-1 bg-cover bg-center flex items-center justify-center" style="background-image:url('/pictures/lvhome2.jpg');">
@@ -67,16 +69,18 @@
   </div>
 </section>
 
-<!-- BANNER -->
+ BANNER 
+
 <section class="relative bg-gold h-[200px] flex flex-col items-center justify-center my-8">
   <h2 class="font-montserrat font-extrabold text-2xl mb-4 text-black">Find Your Dream Home Today</h2>
-  <div class="flex justify-center gap-2 mt-2">
-    <input type="text" placeholder="Enter city, neighborhood, or ZIP code" class="px-3 py-2 w-[450px] border border-black rounded">
+  <div class="flex flex-col sm:flex-row justify-center gap-2 mt-2 w-full max-w-[90%]">
+    <input type="text" placeholder="Enter city, neighborhood, or ZIP code" class="px-3 py-2 w-full border border-black rounded">
     <button class="bg-black text-white px-4 py-2 rounded font-semibold uppercase">Search</button>
   </div>
 </section>
 
-<!-- HOT NEW PROPERTY -->
+HOT NEW PROPERTY 
+
 <section class="bg-lightbg text-center py-8">
   <h2 class="font-montserrat font-extrabold text-2xl text-darkbg mb-4">Hot New Property</h2>
   <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md flex flex-wrap overflow-hidden">
@@ -93,7 +97,8 @@
   </div>
 </section>
 
-<!-- CATEGORIES -->
+ CATEGORIES 
+
 <section class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6">
   <div class="relative overflow-hidden rounded-lg shadow-md h-40 cursor-pointer">
     <img src="pictures/newlist.jpg" alt="" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
@@ -113,12 +118,13 @@
   </div>
 </section>
 
-<!-- FEATURED PROPERTIES -->
+ FEATURED PROPERTIES 
+
 <section class="bg-lightbg text-center py-8">
   <h2 class="font-montserrat font-extrabold text-2xl text-darkbg mb-4">Featured Properties</h2>
   <div class="relative overflow-hidden w-[90%] max-w-5xl mx-auto">
     <div id="featTrack" class="flex transition-transform duration-500 ease-in-out">
-      <!-- Sample Featured Property -->
+       Sample Featured Property 
       <div class="flex-none w-[300px] mr-4 bg-white rounded shadow-md overflow-hidden text-left">
         <img src="pictures/lvilleth.jpg" alt="" class="w-full h-[180px] object-cover">
         <div class="p-4">
@@ -175,7 +181,8 @@
   </div>
 </section>
 
-<!-- BLOG TEASERS -->
+ BLOG TEASERS 
+
 <section class="bg-white py-10">
   <h2 class="font-montserrat font-extrabold text-2xl text-darkbg text-center mb-6">Latest From Our Blog</h2>
   <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-6">
@@ -206,7 +213,8 @@
   </div>
 </section>
 
-<!-- CTA -->
+ CTA 
+
 <section class="flex flex-wrap gap-4 justify-center items-start py-10 bg-lightbg text-center">
   <div class="bg-darkbg text-white p-6 rounded-lg flex flex-col justify-between max-w-xs w-full">
     <h3 class="font-montserrat text-xl mb-2">Buy a Home</h3>
@@ -220,7 +228,8 @@
   </div>
 </section>
 
-<!-- AGENTS -->
+ AGENTS 
+
 <section class="bg-white py-8 text-center">
   <h2 class="font-montserrat font-extrabold text-2xl text-darkbg mb-6">Meet Our Agents</h2>
   <div class="flex flex-wrap justify-center gap-6 px-4">
@@ -243,7 +252,8 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+ FOOTER 
+
 <footer class="bg-darkbg text-white px-6 py-10">
   <div class="grid gap-6 grid-cols-1 sm:grid-cols-3 mb-8">
     <div>
@@ -257,13 +267,13 @@
       <h4 class="font-montserrat font-bold mb-3">Company</h4>
       <a href="#" class="block text-gold text-sm mb-2">About Us</a>
       <a href="#" class="block text-gold text-sm mb-2">Careers</a>
-      <a href="#" class="block text-gold text-sm">Licenses</a>
+      <a href="#" class="block text-gold text-sm mb-2">Licenses</a>
     </div>
     <div>
       <h4 class="font-montserrat font-bold mb-3">Resources</h4>
       <a href="#" class="block text-gold text-sm mb-2">Buy a Home</a>
       <a href="#" class="block text-gold text-sm mb-2">Finance</a>
-      <a href="#" class="block text-gold text-sm">FAQs</a>
+      <a href="#" class="block text-gold text-sm mb-2">FAQs</a>
     </div>
   </div>
   <div class="text-center mb-4">
@@ -275,12 +285,14 @@
   </p>
 </footer>
 
-<!-- LIVE CHAT -->
+LIVE CHAT 
+
 <div class="fixed bottom-6 right-6 z-50">
   <button onclick="alert('Opening live chat…')" class="bg-gold text-darkbg w-[60px] h-[60px] rounded-full text-2xl shadow-lg">💬</button>
 </div>
 
-<!-- JAVASCRIPT -->
+ JAVASCRIPT 
+
 <script>
   document.querySelector('.menu-toggle')?.addEventListener('click', () => {
     document.querySelector('nav')?.classList.toggle('open');
