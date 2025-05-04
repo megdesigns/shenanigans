@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beauty Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Manrope', sans-serif;
+      background-color: #fef1ff;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVIGATION */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #fbcdff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #e3d8cc;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      position: relative;
+    }
+
+    .nav-links li {
+      list-style: none;
+      position: relative;
+    }
+
+    .nav-links a {
+      padding: 5px 10px;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: flex;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 30px;
+      left: 0;
+      background: white;
+      border: 1px solid #e3d8cc;
+      padding: 10px;
+      z-index: 100;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 500px;
+      height: 40px;
+      align-items: center;
+    }
+
+    .dropdown-menu li {
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .dropdown-menu li a {
+      padding: 5px 15px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .dropdown-menu li a:hover {
+      color: #a8744f;
+    }
+
+    /* HERO */
+    .hero img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    /* SLIDER SECTION */
+    .slider-section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .slider-title {
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .slider-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 20px;
+      overflow: hidden;
+      width: 90%;
+      justify-content: center;
+    }
+
+    .card {
+      width: 200px;
+      height: 260px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .label {
+      position: absolute;
+      bottom: 10px;
+      background: transparent;
+      color: #f9b3ff;
+      padding: 6px 12px;
+      display: inline-block;
+      background-color: #e31cf5;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .arrow {
+      border: 1.5px solid #e31cf5;
+      background: transparent;
+      color: #e31cf5;
+      font-size: 20px;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* PROMO SECTION */
+    .promo-split {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f6f1eb;
+      padding: 40px 20px;
+      gap: 20px;
+    }
+
+    .promo-text {
+      flex: 1;
+      border: 1px solid #e31cf5;
+      padding: 20px;
+      width: 400px;
+      height: 400px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .promo-image {
+      flex: 1;
+      width: 400px;
+      height: 400px;
+    }
+
+    .promo-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .shop-now-btn {
+      background: #e31cf5;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-family: 'Manrope';
+      font-size: 14px;
+      align-self: flex-start;
+    }
+
+    /* EVENT BANNER */
+    .event-banner {
+      position: relative;
+      margin: 40px 0;
+    }
+
+    .event-banner img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .event-text {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.85);
+      padding: 20px;
+    }
+
+    .btn {
+      background: #e31cf5;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-family: 'Manrope';
+    }
+
+    .events-section {
+      padding: 40px 20px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .event-card {
+      background: #f3e0f5;
+      padding: 20px;
+      border: 1px solid #e3d8cc;
+      text-align: left;
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .event-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .event-card p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: #f3e0f5;
+      padding: 40px 20px;
+      font-size: 14px;
+    }
+
+    .newsletter {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .newsletter h3 {
+      margin-bottom: 10px;
+    }
+
+    .newsletter form {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .newsletter input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .newsletter button {
+      background: #e31cf5;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">BeautyStore</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li class="dropdown">
+        <a href="#">Shop</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Best Sellers</a></li>
+          <li><a href="#">Face</a></li>
+          <li><a href="#">Body</a></li>
+          <li><a href="#">New</a></li>
+          <li><a href="#">Shop All</a></li>
+        </ul>
+      </li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Shade Finder</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="event-banner">
+      <img src="pictures/Makeup-Header.jpg" alt="Girl holding lip gloss">
+      <div class="event-text" style="left: 20px; right: auto; display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+      <p>Discover the latest beauty trends!</p>
+      <div style="display: flex; gap: 10px;">
+        <button class="btn">Learn More</button>
+        <button class="btn">Shop Now</button>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slider-section">
+    <h2 class="slider-title">New Arrivals</h2>
+    <div class="slider-container">
+      <div class="arrow" onclick="prevSlide('newArrivals')">❮</div>
+      <div class="slider-track" id="newArrivals">
+        <div class="card"><img src="pictures/fentyskin.jpg" alt="Product 1"><span class="label">Product 1</span></div>
+        <div class="card"><img src="pictures/rarebeautyhydrating.jpg" alt="Product 2"><span class="label">Product 2</span></div>
+        <div class="card"><img src="pictures/rarebeautylip.jpg" alt="Product 4"><span class="label">Product 4</span></div>
+        <div class="card"><img src="pictures/rhodeglazingfluid.jpeg" alt="Product 3"><span class="label">Product 3</span></div>
+        <div class="card"><img src="pictures/ysl.jpeg" alt="Product 5"><span class="label">Product 5</span></div>
+      </div>
+      <div class="arrow" onclick="nextSlide('newArrivals')">❯</div>
+    </div>
+  </section>
+
+  <section class="promo-split">
+    <div class="promo-text">
+      <h3>Hot New Product</h3>
+      <p>Discover our latest beauty essential that everyone is talking about!</p>
+      <a href="#" class="shop-now-btn">Shop Now</a>
+    </div>
+    <div class="promo-image">
+      <img src="pictures/hotnew.jpg" alt="Hot product" />
+    </div>
+  </section>
+
+  <section class="slider-section">
+    <h2 class="slider-title">New Releases</h2>
+    <div class="slider-container"> 
+      <div class="arrow" onclick="prevSlide('newReleases')">❮</div>
+      <div class="slider-track" id="newReleases">
+        <div class="card"><img src="pictures/rhodebarrierrestore.jpeg" alt="Release 1"><span class="label">Release 1</span></div>
+        <div class="card"><img src="pictures/diorbeautyjpg.jpg" alt="Release 2"><span class="label">Release 2</span></div>
+        <div class="card"><img src="pictures/merit.jpg" alt="Release 3"><span class="label">Release 3</span></div>
+        <div class="card"><img src="pictures/glossier.jpg" alt="Release 4"><span class="label">Release 4</span></div>
+      </div>
+      <div class="arrow" onclick="nextSlide('newReleases')">❯</div>
+    </div>
+  </section>
+
+  <section class="slider-section">
+    <h2 class="slider-title">Shop by Category</h2>
+    <div class="slider-container">
+      <div class="arrow" onclick="prevSlide('categories')">❮</div>
+      <div class="slider-track" id="categories">
+        <div class="card"><img src="pictures/bmface.jpg" alt="Face" style="align-content: center;" /> <span class="label">Face</span></div>
+        <div class="card"><img src="pictures/bmlips2.jpg" alt="Lips"><span class="label">Lips</span></div>
+        <div class="card"><img src="pictures/bmbody.jpg" alt="Body"><span class="label">Body</span></div>
+        <div class="card"><img src="pictures/bmeyes.jpg" alt="Eyes" style="align-content: left;" /> <span class="label">Eyes</span></div>
+      </div>
+      <div class="arrow" onclick="nextSlide('categories')">❯</div>
+    </div>
+  </section>
+
+  <section class="slider-section">
+    <h2 class="slider-title">Meet our influencers</h2>
+    <div class="slider-container">
+      <div class="arrow" onclick="prevSlide('influencers')">❮</div>
+      <div class="slider-track" id="influencers">
+        <div class="card"><img src="pictures/influencer1.jpg" alt="@beautyguru1"><span class="label">@beautyguru1</span></div>
+        <div class="card"><img src="pictures/influencer2.jpeg" alt="@makeupqueen"><span class="label">@makeupqueen</span></div>
+        <div class="card"><img src="pictures/Influencer.3jpg.jpg" alt="@glowbabe"><span class="label">@glowbabe</span></div>
+        <div class="card"><img src="pictures/influencer4 .jpg" alt="@styleicon"><span class="label">@styleicon</span></div>
+      </div>
+      <div class="arrow" onclick="nextSlide('influencers')">❯</div>
+    </div>
+  </section>
+
+  <section class="events-section">
+    <h2 class="slider-title">Upcoming Events</h2>
+    <div class="events-grid">
+      <div class="event-card">
+        <img src="pictures/rareselena.jpg" alt="Event 1" />
+        <h3>Event 1</h3>
+        <p>Join us for a beauty workshop!</p>
+      </div>
+      <div class="event-card">
+        <img src="pictures/beauty-products.jpg" alt="Event 2" />
+        <h3>Event 2</h3>
+        <p>Exclusive product launch party.</p>
+      </div>
+      <div class="event-card">
+        <img src="pictures/event.jpg" alt="Event 3" />
+        <h3>Event 3</h3>
+        <p>Meet our beauty experts!</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="event-banner">
+    <img src="pictures/event banner.jpg" alt="Event banner">
+    <div class="event-text">
+      <p>Don’t miss our upcoming glow event!</p>
+      <button class="btn">Register</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="newsletter">
+      <h3>Subscribe to our newsletter</h3>
+      <form>
+        <input type="email" placeholder="Enter your email" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-nav">
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">About</a>
+      <a href="#">Shade Finder</a>
+      </div>
+      <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function nextSlide(id) {
+      const track = document.getElementById(id);
+      const cardWidth = track.children[0].offsetWidth + 20; // Card width + gap
+      track.style.transition = 'transform 0.3s ease';
+      track.style.transform = `translateX(-${cardWidth}px)`;
+      setTimeout(() => {
+        track.style.transition = 'none';
+        track.appendChild(track.children[0]);
+        track.style.transform = 'translateX(0)';
+      }, 300);
+    }
+
+    function prevSlide(id) {
+      const track = document.getElementById(id);
+      const cardWidth = track.children[0].offsetWidth + 20; 
+      track.style.transition = 'none';
+      track.insertBefore(track.children[track.children.length - 1], track.children[0]);
+      track.style.transform = `translateX(-${cardWidth}px)`;
+      setTimeout(() => {
+        track.style.transition = 'transform 0.3s ease';
+        track.style.transform = 'translateX(0)';
+      }, 10);
+    }
+  </script>
+
+</body>
+</html>
