@@ -1,1 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Oakline Properties – Georgia Homes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            darkbg: '#2E2E2E',
+            lightbg: '#F5F5F5',
+            gold: '#FFCF3F',
+            text: '#333333'
+          },
+          fontFamily: {
+            montserrat: ['Merriweather', 'sans-serif'],
+            opensans: ['Open Sans', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-lightbg text-text font-opensans">
 
+<header class="sticky top-0 z-50 bg-darkbg flex items-center justify-between px-8 py-4">
+  <div class="flex items-center gap-4">
+    <img src="pictures/oaklp.JPG" alt="Logo" class="h-12 w-12 rounded">
+    <div class="text-gold text-2xl font-extrabold font-montserrat">Oakline Properties</div>
+  </div>
+  <div class="md:hidden text-white text-2xl cursor-pointer menu-toggle">☰</div>
+  <nav class="hidden md:flex gap-6">
+    <a href="#" class="text-white font-semibold uppercase hover:text-gold">Home</a>
+    <a href="#" class="text-white font-semibold uppercase hover:text-gold">Listings</a>
+    <a href="#" class="text-white font-semibold uppercase hover:text-gold">Blog</a>
+    <a href="#" class="text-white font-semibold uppercase hover:text-gold">Contact</a>
+  </nav>
+</header>
+
+<section class="relative overflow-hidden h-[350px]">
+  <div id="slides" class="flex w-[500%] h-full transition-transform duration-500 ease-in-out">
+    <div class="slide flex-1 bg-cover bg-center flex items-center justify-center" style="background-image:url('/pictures/lvhome2.jpg');">
+      <h1 class="bg-white/85 px-6 py-4 rounded font-montserrat font-bold text-2xl text-darkbg uppercase text-center">Discover Lawrenceville homes</h1>
+    </div>
+    <div class="slide flex-1 bg-cover bg-center flex items-center justify-center" style="background-image:url('pictures/dtahome.jpg');">
+      <h1 class="bg-white/85 px-6 py-4 rounded font-montserrat font-bold text-2xl text-darkbg uppercase text-center">Discover Downtown Atlanta homes</h1>
+    </div>
+    <div class="slide flex-1 bg-cover bg-center flex items-center justify-center" style="background-image:url('pictures/gwhome.jpeg');">
+      <h1 class="bg-white/85 px-6 py-4 rounded font-montserrat font-bold text-2xl text-darkbg uppercase text-center">Discover Gwinnett homes</h1>
+    </div>
+    <div class="slide flex-1 bg-cover bg-center flex items-center justify-center" style="background-image:url('pictures/bufhome.png');">
+      <h1 class="bg-white/85 px-6 py-4 rounded font-montserrat font-bold text-2xl text-darkbg uppercase text-center">Discover Buford homes</h1>
+    </div>
+    <div class="slide flex-1 bg-cover bg-center flex items-center justify-center" style="background-image:url('pictures/loghome.jpg');">
+      <h1 class="bg-white/85 px-6 py-4 rounded font-montserrat font-bold text-2xl text-darkbg uppercase text-center">Discover Loganville homes</h1>
+    </div>
+  </div>
+  <div class="absolute top-1/2 left-0 right-0 flex justify-between px-4 -translate-y-1/2">
+    <button id="prev" class="w-10 h-10 bg-black/50 text-white rounded-full text-lg">❮</button>
+    <button id="next" class="w-10 h-10 bg-black/50 text-white rounded-full text-lg">❯</button>
+  </div>
+</section>
+
+<section class="relative bg-gold h-[200px] flex flex-col items-center justify-center my-8">
+  <h2 class="font-montserrat font-extrabold text-2xl mb-4 text-black">Find Your Dream Home Today</h2>
+  <div class="flex flex-col sm:flex-row justify-center gap-2 mt-2 w-full max-w-[90%]">
+    <input type="text" placeholder="Enter city, neighborhood, or ZIP code" class="px-3 py-2 w-full border border-black rounded">
+    <button class="bg-black text-white px-4 py-2 rounded font-semibold uppercase">Search</button>
+  </div>
+</section>
+
+<section class="bg-lightbg text-center py-8">
+  <h2 class="font-montserrat font-extrabold text-2xl text-darkbg mb-4">Hot New Property</h2>
+  <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md flex flex-wrap overflow-hidden">
+    <img src="pictures/hot new.jpeg" alt="Hot New" class="w-full sm:w-1/2 object-cover">
+    <div class="p-6 flex-1 flex flex-col justify-between text-left">
+      <div>
+        <h3 class="text-xl font-montserrat font-bold mb-2 text-darkbg">Modern Townhouse in Bethlehem</h3>
+        <p class="mb-4">This stunning townhouse features modern amenities and a spacious layout, perfect for families. Located in a quiet neighborhood with easy access to schools and parks. Enjoy a large backyard, perfect for entertaining or relaxing. This property is a must-see!</p>
+        <p class="text-lg font-bold mb-2">Starting at $520,000</p>
+        <p class="mb-4">3 beds • 2.5 baths • 1,900 sq ft</p>
+      </div>
+      <button class="bg-gold text-black px-6 py-3 rounded font-semibold uppercase">Contact Agent</button>
+    </div>
+  </div>
+</section>
+
+<section class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6">
+  <div class="relative overflow-hidden rounded-lg shadow-md h-40 cursor-pointer">
+    <img src="pictures/newlist.jpg" alt="" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+    <p class="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center py-2 font-semibold uppercase font-montserrat">New Listings</p>
+  </div>
+  <div class="relative overflow-hidden rounded-lg shadow-md h-40 cursor-pointer">
+    <img src="pictures/plots.jpg.webp" alt="" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+    <p class="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center py-2 font-semibold uppercase font-montserrat">Land Plots</p>
+  </div>
+  <div class="relative overflow-hidden rounded-lg shadow-md h-40 cursor-pointer">
+    <img src="pictures/airbnb.jpeg" alt="" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+    <p class="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center py-2 font-semibold uppercase font-montserrat">Rentals</p>
+  </div>
+  <div class="relative overflow-hidden rounded-lg shadow-md h-40 cursor-pointer">
+    <img src="pictures/openhouse.jpg" alt="" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+    <p class="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center py-2 font-semibold uppercase font-montserrat">Open Houses</p>
+  </div>
+</section>
+
+<section class="bg-lightbg text-center py-8">
+  <h2 class="font-montserrat font-extrabold text-2xl text-darkbg mb-4">Featured Properties</h2>
+  <div class="relative overflow-hidden w-[90%] max-w-5xl mx-auto">
+    <div id="featTrack" class="flex transition-transform duration-500 ease-in-out">
+    
+      <div class="flex-none w-[300px] mr-4 bg-white rounded shadow-md overflow-hidden text-left">
+        <img src="pictures/lvilleth.jpg" alt="" class="w-full h-[180px] object-cover">
+        <div class="p-4">
+          <h3 class="font-montserrat font-semibold text-gold text-lg mb-2">Lawrenceville Townhouse</h3>
+          <p class="font-bold mb-2">$320,000</p>
+          <button class="bg-gold text-darkbg px-4 py-2 rounded uppercase font-semibold">Contact Agent</button>
+        </div>
+      </div>
+      <div class="flex-none w-[300px] mr-4 bg-white rounded shadow-md overflow-hidden text-left">
+        <img src="pictures/bethth.jpg" alt="" class="w-full h-[180px] object-cover">
+        <div class="p-4">
+          <h3 class="font-montserrat font-semibold text-gold text-lg mb-2">Bethlehem Villa</h3>
+          <p class="font-bold mb-2">$450,000</p>
+          <button class="bg-gold text-darkbg px-4 py-2 rounded uppercase font-semibold">Contact Agent</button>
+        </div>
+      </div>
+      <div class="flex-none w-[300px] mr-4 bg-white rounded shadow-md overflow-hidden text-left">
+        <img src="pictures/alpha luxury.jpg" alt="" class="w-full h-[180px] object-cover">
+        <div class="p-4">
+          <h3 class="font-montserrat font-semibold text-gold text-lg mb-2">Alpharetta Luxury</h3>
+          <p class="font-bold mb-2">$750,000</p>
+          <button class="bg-gold text-darkbg px-4 py-2 rounded uppercase font-semibold">Contact Agent</button>
+        </div>
+      </div>
+      <div class="flex-none w-[300px] mr-4 bg-white rounded shadow-md overflow-hidden text-left">
+        <img src="pictures/gwinnetest.jpg" alt="" class="w-full h-[180px] object-cover">
+        <div class="p-4">
+          <h3 class="font-montserrat font-semibold text-gold text-lg mb-2">Gwinnett Estate</h3>
+          <p class="font-bold mb-2">$280,000</p>
+          <button class="bg-gold text-darkbg px-4 py-2 rounded uppercase font-semibold">Contact Agent</button>
+        </div>
+      </div>
+      <div class="flex-none w-[300px] mr-4 bg-white rounded shadow-md overflow-hidden text-left">
+        <img src="pictures/bethhome.jpg" alt="" class="w-full h-[180px] object-cover">
+        <div class="p-4">
+          <h3 class="font-montserrat font-semibold text-gold text-lg mb-2">Bethlehem Home</h3>
+          <p class="font-bold mb-2">$450,000</p>
+          <button class="bg-gold text-darkbg px-4 py-2 rounded uppercase font-semibold">Contact Agent</button>
+        </div>
+      </div>
+      <div class="flex-none w-[300px] mr-4 bg-white rounded shadow-md overflow-hidden text-left">
+        <img src="pictures/bthvilla.jpg" alt="" class="w-full h-[180px] object-cover">
+        <div class="p-4">
+          <h3 class="font-montserrat font-semibold text-gold text-lg mb-2">Loganville Home</h3>
+          <p class="font-bold mb-2">$395,000</p>
+          <button class="bg-gold text-darkbg px-4 py-2 rounded uppercase font-semibold">Contact Agent</button>
+        </div>
+      </div>
+    </div>
+    <div class="absolute top-1/2 w-full flex justify-between transform -translate-y-1/2 px-4">
+      <button id="featPrev" class="bg-black/50 text-white w-10 h-10 rounded-full text-xl">❮</button>
+      <button id="featNext" class="bg-black/50 text-white w-10 h-10 rounded-full text-xl">❯</button>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white py-10">
+  <h2 class="font-montserrat font-extrabold text-2xl text-darkbg text-center mb-6">Latest From Our Blog</h2>
+  <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-6">
+    <div class="bg-lightbg rounded shadow-md overflow-hidden">
+      <img src="pictures/firsttimebuyer.jpeg" alt="" class="w-full h-[250px] object-cover">
+      <div class="p-4">
+        <h3 class="font-montserrat text-lg mb-2 text-darkbg">5 Tips for First‑Time Buyers</h3>
+        <p class="text-sm mb-3 text-text">Learn how to navigate your first home purchase in Georgia’s hot market.</p>
+        <a href="#" class="text-gold font-semibold uppercase text-sm">Read More →</a>
+      </div>
+    </div>
+    <div class="bg-lightbg rounded shadow-md overflow-hidden">
+      <img src="pictures/financeoptions.jpg" alt="" class="w-full h-[250px] object-cover">
+      <div class="p-4">
+        <h3 class="font-montserrat text-lg mb-2 text-darkbg">Financing Options Explained</h3>
+        <p class="text-sm mb-3 text-text">Explore mortgage types, rates, and strategies to get the best deal.</p>
+        <a href="#" class="text-gold font-semibold uppercase text-sm">Read More →</a>
+      </div>
+    </div>
+    <div class="bg-lightbg rounded shadow-md overflow-hidden">
+      <img src="pictures/topneigh.jpeg" alt="" class="w-full h-[250px] object-cover">
+      <div class="p-4">
+        <h3 class="font-montserrat text-lg mb-2 text-darkbg">Top Neighborhoods in Gwinnett</h3>
+        <p class="text-sm mb-3 text-text">A breakdown of the most sought‑after communities in the county.</p>
+        <a href="#" class="text-gold font-semibold uppercase text-sm">Read More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flex flex-wrap gap-4 justify-center items-start py-10 bg-lightbg text-center">
+  <div class="bg-darkbg text-white p-6 rounded-lg flex flex-col justify-between max-w-xs w-full">
+    <h3 class="font-montserrat text-xl mb-2">Buy a Home</h3>
+    <p class="mb-4">Everything you need—from search tools to expert guidance.</p>
+    <button class="bg-gold text-darkbg px-4 py-2 rounded font-semibold">Start Here</button>
+  </div>
+  <div class="bg-darkbg text-white p-6 rounded-lg flex flex-col justify-between max-w-xs w-full">
+    <h3 class="font-montserrat text-xl mb-2">Finance Your Purchase</h3>
+    <p class="mb-4">Understand mortgages, rates, and get pre‑qualified instantly.</p>
+    <button class="bg-gold text-darkbg px-4 py-2 rounded font-semibold">Learn More</button>
+  </div>
+</section>
+
+<section class="bg-white py-8 text-center">
+  <h2 class="font-montserrat font-extrabold text-2xl text-darkbg mb-6">Meet Our Agents</h2>
+  <div class="flex flex-wrap justify-center gap-6 px-4">
+    <div class="bg-lightbg rounded-lg shadow-md overflow-hidden w-[150px]">
+      <img src="pictures/agent1.jpg" alt="Jessica Brown" class="w-full aspect-square object-cover">
+      <div class="p-2">
+        <h3 class="font-montserrat font-semibold text-sm text-gold mb-1">Jessica Brown</h3>
+        <p class="text-xs text-text mb-2">Lead Realtor</p>
+        <a href="tel:+14015551234" class="bg-gold text-darkbg px-2 py-1 rounded text-xs font-semibold uppercase inline-block">Call</a>
+      </div>
+    </div>
+    <div class="bg-lightbg rounded-lg shadow-md overflow-hidden w-[150px]">
+      <img src="pictures/agent2.jpg" alt="Marcus Lee" class="w-full aspect-square object-cover">
+      <div class="p-2">
+        <h3 class="font-montserrat font-semibold text-sm text-gold mb-1">Marcus Lee</h3>
+        <p class="text-xs text-text mb-2">Property Specialist</p>
+        <a href="tel:+14015559876" class="bg-gold text-darkbg px-2 py-1 rounded text-xs font-semibold uppercase inline-block">Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-darkbg text-white px-6 py-10">
+  <div class="grid gap-6 grid-cols-1 sm:grid-cols-3 mb-8">
+    <div>
+      <h4 class="font-montserrat font-bold mb-3">Quick Links</h4>
+      <a href="#" class="block text-gold text-sm mb-2">Home</a>
+      <a href="#" class="block text-gold text-sm mb-2">Listings</a>
+      <a href="#" class="block text-gold text-sm mb-2">Blog</a>
+      <a href="#" class="block text-gold text-sm">Contact</a>
+    </div>
+    <div>
+      <h4 class="font-montserrat font-bold mb-3">Company</h4>
+      <a href="#" class="block text-gold text-sm mb-2">About Us</a>
+      <a href="#" class="block text-gold text-sm mb-2">Careers</a>
+      <a href="#" class="block text-gold text-sm mb-2">Licenses</a>
+    </div>
+    <div>
+      <h4 class="font-montserrat font-bold mb-3">Resources</h4>
+      <a href="#" class="block text-gold text-sm mb-2">Buy a Home</a>
+      <a href="#" class="block text-gold text-sm mb-2">Finance</a>
+      <a href="#" class="block text-gold text-sm mb-2">FAQs</a>
+    </div>
+  </div>
+  <div class="text-center mb-4">
+    <input type="email" placeholder="Your email address" class="px-4 py-2 rounded max-w-xs w-full mb-2">
+    <button class="bg-gold text-darkbg px-6 py-2 rounded font-semibold">Subscribe</button>
+  </div>
+  <p class="text-center text-xs text-white/60 border-t border-white/20 pt-4">
+    © 2025 Oakline Properties | Licensed in Georgia | Privacy Policy | Terms of Use
+  </p>
+</footer>
+
+<div class="fixed bottom-6 right-6 z-50">
+  <button onclick="alert('Opening live chat…')" class="bg-gold text-darkbg w-[60px] h-[60px] rounded-full text-2xl shadow-lg">💬</button>
+</div>
+
+<script>
+  document.querySelector('.menu-toggle')?.addEventListener('click', () => {
+    document.querySelector('nav')?.classList.toggle('open');
+  });
+
+  const slideContainer = document.getElementById('slides');
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+  let slideIdx = 0;
+
+  const updateSlider = () => {
+    const slideWidth = slides[0].clientWidth;
+    slideContainer.style.transform = `translateX(-${slideIdx * slideWidth}px)`;
+  };
+
+  document.getElementById('next')?.addEventListener('click', () => {
+    slideIdx = (slideIdx + 1) % totalSlides;
+    updateSlider();
+  });
+
+  document.getElementById('prev')?.addEventListener('click', () => {
+    slideIdx = (slideIdx + totalSlides - 1) % totalSlides;
+    updateSlider();
+  });
+
+  const featTrack = document.getElementById('featTrack');
+  const totalFeat = featTrack?.children.length;
+  let featIdx = 0;
+  document.getElementById('featNext')?.addEventListener('click', () => {
+    featIdx = (featIdx + 1) % totalFeat;
+    featTrack.style.transform = `translateX(-${featIdx * 320}px)`;
+  });
+  document.getElementById('featPrev')?.addEventListener('click', () => {
+    featIdx = (featIdx + totalFeat - 1) % totalFeat;
+    featTrack.style.transform = `translateX(-${featIdx * 320}px)`;
+  });
+
+  window.addEventListener('resize', updateSlider);
+</script>
+
+</body>
+</html>
