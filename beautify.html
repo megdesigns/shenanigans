@@ -105,6 +105,7 @@
     .slider-section {
       padding: 40px 20px;
       text-align: center;
+      position: relative;
     }
 
     .slider-title {
@@ -117,6 +118,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
+      position: relative;
     }
 
     .slider-track {
@@ -135,12 +137,21 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 8px;
     }
 
     .card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    
+    /* Image hover effect */
+    .card:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.1);
     }
 
     .label {
@@ -159,11 +170,17 @@
       text-align: center;
       left: 50%;
       transform: translateX(-50%);
+      z-index: 10;
+      transition: background-color 0.3s ease;
+    }
+    
+    .card:hover .label {
+      background-color: #c00fd2;
     }
 
     .arrow {
       border: 1.5px solid #e31cf5;
-      background: transparent;
+      background: white;
       color: #e31cf5;
       font-size: 20px;
       border-radius: 50%;
@@ -173,6 +190,25 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .arrow:hover {
+      background: #e31cf5;
+      color: white;
+    }
+    
+    .arrow-prev {
+      left: 0;
+    }
+    
+    .arrow-next {
+      right: 0;
     }
 
     /* PROMO SECTION */
@@ -183,6 +219,7 @@
       background: #f6f1eb;
       padding: 40px 20px;
       gap: 20px;
+      overflow: hidden;
     }
 
     .promo-text {
@@ -195,18 +232,43 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      opacity: 0;
+      transform: translateX(-100px);
+      animation: slideInFromLeft 1s forwards;
     }
 
     .promo-image {
       flex: 1;
       width: 400px;
       height: 400px;
+      opacity: 0;
+      transform: translateX(100px);
+      animation: slideInFromRight 1s forwards;
+    }
+    
+    @keyframes slideInFromLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes slideInFromRight {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     .promo-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .promo-image:hover img {
+      transform: scale(1.05);
     }
 
     .shop-now-btn {
@@ -218,6 +280,11 @@
       font-family: 'Manrope';
       font-size: 14px;
       align-self: flex-start;
+      transition: background-color 0.3s ease;
+    }
+    
+    .shop-now-btn:hover {
+      background: #c00fd2;
     }
 
     /* EVENT BANNER */
@@ -230,6 +297,11 @@
       width: 100%;
       height: 300px;
       object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .event-banner:hover img {
+      transform: scale(1.02);
     }
 
     .event-text {
@@ -247,6 +319,11 @@
       padding: 10px 20px;
       cursor: pointer;
       font-family: 'Manrope';
+      transition: background-color 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: #c00fd2;
     }
 
     .events-section {
@@ -268,6 +345,12 @@
       padding: 20px;
       border: 1px solid #e3d8cc;
       text-align: left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
     .event-card img {
@@ -275,6 +358,11 @@
       height: 150px;
       object-fit: cover;
       margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    .event-card:hover img {
+      transform: scale(1.05);
     }
 
     .event-card h3 {
@@ -315,6 +403,12 @@
       padding: 8px;
       border: 1px solid #ccc;
       font-size: 14px;
+      transition: border-color 0.3s ease;
+    }
+    
+    .newsletter input:focus {
+      border-color: #e31cf5;
+      outline: none;
     }
 
     .newsletter button {
@@ -323,6 +417,11 @@
       border: none;
       padding: 8px 16px;
       font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .newsletter button:hover {
+      background: #c00fd2;
     }
 
     .footer-bottom {
@@ -336,15 +435,26 @@
       display: flex;
       gap: 20px;
     }
+    
+    .footer-nav a {
+      transition: color 0.3s ease;
+    }
+    
+    .footer-nav a:hover {
+      color: #e31cf5;
+    }
 
     .social-icons {
       display: flex;
       gap: 10px;
     }
-
-    .social-icons img {
-      width: 24px;
-      height: 24px;
+    
+    .social-icons a {
+      transition: color 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      color: #e31cf5;
     }
   </style>
 </head>
@@ -385,7 +495,7 @@
   <section class="slider-section">
     <h2 class="slider-title">New Arrivals</h2>
     <div class="slider-container">
-      <div class="arrow" onclick="prevSlide('newArrivals')">❮</div>
+      <div class="arrow arrow-prev" onclick="prevSlide('newArrivals')">❮</div>
       <div class="slider-track" id="newArrivals">
         <div class="card"><img src="pictures/fentyskin.jpg" alt="Product 1"><span class="label">Product 1</span></div>
         <div class="card"><img src="pictures/rarebeautyhydrating.jpg" alt="Product 2"><span class="label">Product 2</span></div>
@@ -393,7 +503,7 @@
         <div class="card"><img src="pictures/rhodeglazingfluid.jpeg" alt="Product 3"><span class="label">Product 3</span></div>
         <div class="card"><img src="pictures/ysl.jpeg" alt="Product 5"><span class="label">Product 5</span></div>
       </div>
-      <div class="arrow" onclick="nextSlide('newArrivals')">❯</div>
+      <div class="arrow arrow-next" onclick="nextSlide('newArrivals')">❯</div>
     </div>
   </section>
 
@@ -411,42 +521,42 @@
   <section class="slider-section">
     <h2 class="slider-title">New Releases</h2>
     <div class="slider-container"> 
-      <div class="arrow" onclick="prevSlide('newReleases')">❮</div>
+      <div class="arrow arrow-prev" onclick="prevSlide('newReleases')">❮</div>
       <div class="slider-track" id="newReleases">
         <div class="card"><img src="pictures/rhodebarrierrestore.jpeg" alt="Release 1"><span class="label">Release 1</span></div>
         <div class="card"><img src="pictures/diorbeautyjpg.jpg" alt="Release 2"><span class="label">Release 2</span></div>
         <div class="card"><img src="pictures/merit.jpg" alt="Release 3"><span class="label">Release 3</span></div>
         <div class="card"><img src="pictures/glossier.jpg" alt="Release 4"><span class="label">Release 4</span></div>
       </div>
-      <div class="arrow" onclick="nextSlide('newReleases')">❯</div>
+      <div class="arrow arrow-next" onclick="nextSlide('newReleases')">❯</div>
     </div>
   </section>
 
   <section class="slider-section">
     <h2 class="slider-title">Shop by Category</h2>
     <div class="slider-container">
-      <div class="arrow" onclick="prevSlide('categories')">❮</div>
+      <div class="arrow arrow-prev" onclick="prevSlide('categories')">❮</div>
       <div class="slider-track" id="categories">
         <div class="card"><img src="pictures/bmface.jpg" alt="Face" style="align-content: center;" /> <span class="label">Face</span></div>
         <div class="card"><img src="pictures/bmlips2.jpg" alt="Lips"><span class="label">Lips</span></div>
         <div class="card"><img src="pictures/bmbody.jpg" alt="Body"><span class="label">Body</span></div>
         <div class="card"><img src="pictures/bmeyes.jpg" alt="Eyes" style="align-content: left;" /> <span class="label">Eyes</span></div>
       </div>
-      <div class="arrow" onclick="nextSlide('categories')">❯</div>
+      <div class="arrow arrow-next" onclick="nextSlide('categories')">❯</div>
     </div>
   </section>
 
   <section class="slider-section">
     <h2 class="slider-title">Meet our influencers</h2>
     <div class="slider-container">
-      <div class="arrow" onclick="prevSlide('influencers')">❮</div>
+      <div class="arrow arrow-prev" onclick="prevSlide('influencers')">❮</div>
       <div class="slider-track" id="influencers">
         <div class="card"><img src="pictures/influencer1.jpg" alt="@beautyguru1"><span class="label">@beautyguru1</span></div>
         <div class="card"><img src="pictures/influencer2.jpeg" alt="@makeupqueen"><span class="label">@makeupqueen</span></div>
         <div class="card"><img src="pictures/Influencer.3jpg.jpg" alt="@glowbabe"><span class="label">@glowbabe</span></div>
         <div class="card"><img src="pictures/influencer4 .jpg" alt="@styleicon"><span class="label">@styleicon</span></div>
       </div>
-      <div class="arrow" onclick="nextSlide('influencers')">❯</div>
+      <div class="arrow arrow-next" onclick="nextSlide('influencers')">❯</div>
     </div>
   </section>
 
@@ -474,7 +584,7 @@
   <div class="event-banner">
     <img src="pictures/event banner.jpg" alt="Event banner">
     <div class="event-text">
-      <p>Don’t miss our upcoming glow event!</p>
+      <p>Don't miss our upcoming glow event!</p>
       <button class="btn">Register</button>
     </div>
   </div>
@@ -526,6 +636,27 @@
         track.style.transform = 'translateX(0)';
       }, 10);
     }
+    
+    // Trigger animation when element becomes visible
+    document.addEventListener('DOMContentLoaded', function() {
+      const promoSection = document.querySelector('.promo-split');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const promoText = entry.target.querySelector('.promo-text');
+            const promoImage = entry.target.querySelector('.promo-image');
+            
+            promoText.style.animation = 'slideInFromLeft 1s forwards';
+            promoImage.style.animation = 'slideInFromRight 1s forwards';
+            
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      observer.observe(promoSection);
+    });
   </script>
 
 </body>
